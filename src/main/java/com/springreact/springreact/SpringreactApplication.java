@@ -8,6 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
+/**
+ * 
+ * @author GIGA-Money
+ *  This is the main for the application.
+ *  When using the h2 db for local mem testing: jdbc:h2:mem:testdb .
+ */
 public class SpringreactApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(SpringreactApplication.class);
