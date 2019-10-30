@@ -35,5 +35,15 @@ public class CarEntity {
     setYear(year);
     setPrice(price);
   }
+  public CarEntity(String brand, String model,
+      String color, String regNum, int year, int price, OwnerEntity owner) {
+    super();
+    setBrand(brand);
+    setModel(model);
+    setColor(color);
+    setRegNum(regNum);
+    setYear(year);
+    setPrice(price);
+  }
 
 }
