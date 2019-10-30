@@ -51,4 +51,8 @@ public interface CarRepo extends CrudRepository<CarEntity, Long> {
    */
   List<CarEntity> findByBrandOrColor(String brand,  String color);
   
+  /**
+   * @QueryToMany(cascade = CascadeType.ALL, mappedby="owner")
+   * private List<CarEntity> carlist;
+   */
 }
