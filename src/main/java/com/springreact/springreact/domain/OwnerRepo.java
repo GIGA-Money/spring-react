@@ -19,7 +19,7 @@ public interface OwnerRepo extends CrudRepository<OwnerEntity, Long> {
   List<OwnerEntity> findByBrand(String brand);
 
   /**
-   * Will return a list of cars by color specified.
+   * Will return a list of owners by color specified.
    * 
    * @param color
    * @return param, the intended color, to find the corresponding car.
@@ -27,7 +27,7 @@ public interface OwnerRepo extends CrudRepository<OwnerEntity, Long> {
   List<OwnerEntity> findByColor(String color);
 
   /**
-   * input, the year of the cars to find.
+   * input, the year of the owners to find.
    * 
    * @param year
    * @return Returns the list of cars.
@@ -35,7 +35,7 @@ public interface OwnerRepo extends CrudRepository<OwnerEntity, Long> {
   List<OwnerEntity> findByYear(int year);
 
   /**
-   * Find by brand and model, returns list of cars, takes brand and model params.
+   * Find by brand and model, returns list of owners, takes brand and model params.
    * 
    * @param brand
    * @param model
@@ -44,7 +44,7 @@ public interface OwnerRepo extends CrudRepository<OwnerEntity, Long> {
   List<OwnerEntity> findByBrandAndModel(String brand, String model);
 
   /**
-   * Find by brand or color, returns a list of cars, takes brand and color params.
+   * Find by brand or color, returns a list of owners, takes brand and color params.
    * 
    * @param brand
    * @param color
