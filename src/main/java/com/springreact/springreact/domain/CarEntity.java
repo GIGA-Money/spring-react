@@ -72,6 +72,7 @@ public class CarEntity {
     setRegNum(regNum);
     setYear(year);
     setPrice(price);
+    setOwner(owner);
   }
 
 }
