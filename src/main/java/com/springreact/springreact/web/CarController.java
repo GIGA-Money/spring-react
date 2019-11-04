@@ -8,12 +8,11 @@ import com.springreact.springreact.domain.CarRepo;
 
 @RestController
 public class CarController {
-
-  @Autowired
-  private CarRepo localRepo;
-
-  @GetMapping("/cars")
-  public Iterable<CarEntity> getCars() {
-    return localRepo.findAll();
-  }
+  
+    @Autowired private CarRepo localRepo;
+    
+    @GetMapping("/cars") 
+    public Iterable<CarEntity> getCars() 
+    { return localRepo.findAll(); }
+   
 }
