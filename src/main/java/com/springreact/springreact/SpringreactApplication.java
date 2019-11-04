@@ -12,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import com.springreact.springreact.domain.CarEntity;
 import com.springreact.springreact.domain.CarRepo;
+import com.springreact.springreact.domain.OwnerEntity;
+import com.springreact.springreact.domain.OwnerRepo;
 
 @SpringBootApplication
 /**
@@ -34,21 +36,36 @@ public class SpringreactApplication {
     SpringApplication.run(SpringreactApplication.class, args);
     logger.info("anything goes");
   }
+  
+ /**
+   * These are local owners used for testing the h2 db.
+   */
+  @Autowired
+  private OwnerRepo localOwnerRepo;
+  private OwnerEntity owner = new OwnerEntity("Cave", "Johnson");
+  private OwnerEntity owner2 = new OwnerEntity("Jan", "Leafin");
 
   /**
    * This is a local repo for cars, used for testing the h2 db.
    */
   @Autowired
-  private CarRepo localRepo;
-  private CarEntity localCar = new CarEntity("Toy", "Cam", "Green", "802-11", 97, 100000);
-  private CarEntity localCar2 = new CarEntity("Toy", "Col", "Gray", "801-10", 96, 102500);
-
+  private CarRepo localCarRepo;
+  private CarEntity localCar = new CarEntity("Toy", "Cam", "Green", "802-11", 97, 100000, owner);
+  private CarEntity localCar2 = new CarEntity("Toy", "Col", "Gray", "801-10", 96, 102500, owner2);
+ 
+/**
+ * order of operation note: owners must be saved before cars, as cars are depended on the owner for fetching details, and ower's cascade not fetch.
+ * so when there are entities that fetch they need to save AFTER the cascading repo, or they will fail to fetch.  
+ * @return
+ */
   @Bean
-	CommandLineRunner runing() {
-	  return args -> 	  {
-	    localRepo.save(localCar);
-	    localRepo.save(localCar2);
-	  };
-	}
+  CommandLineRunner runing() {
+    return args -> {
+      localOwnerRepo.save(owner);
+      localOwnerRepo.save(owner2);
+      localCarRepo.save(localCar);
+      localCarRepo.save(localCar2);
+    };
+  }
 
 }
