@@ -12,6 +12,9 @@ import lombok.Data;
 @Entity(name = "owner")
 @Data
 public class OwnerEntity {
+  /**
+   * Properties of the owner.  
+   */
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long owerid;
@@ -25,7 +28,7 @@ public class OwnerEntity {
   private List<CarEntity> cars;
 
   /**
-   * set and get for cars of the owner
+   * Set and get for cars of the owner.
    */
   public List<CarEntity> getCars() {
     return cars;
@@ -34,8 +37,6 @@ public class OwnerEntity {
   public void setCars(List<CarEntity> cars) {
     this.cars = cars;
   }
-
-  public OwnerEntity() {}
 
   public OwnerEntity(String firstname, String lastname) {
     super();

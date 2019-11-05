@@ -36,8 +36,8 @@ public class SpringreactApplication {
     SpringApplication.run(SpringreactApplication.class, args);
     logger.info("anything goes");
   }
-  
- /**
+
+  /**
    * These are local owners used for testing the h2 db.
    */
   @Autowired
@@ -54,12 +54,14 @@ public class SpringreactApplication {
   private CarEntity localCar2 = new CarEntity("Toy", "Col", "Gray", "801-10", 96, 102500, owner2);
   private CarEntity localCar3 = new CarEntity("For", "Tar", "Tan", "568-98-11", 2009, 90500);
   private CarEntity localCar4 = new CarEntity("Chev", "Chall", "Black", "124-66-30", 11, 78601);
- 
-/**
- * order of operation note: owners must be saved before cars, as cars are depended on the owner for fetching details, and ower's cascade not fetch.
- * so when there are entities that fetch they need to save AFTER the cascading repo, or they will fail to fetch.  
- * @return
- */
+
+  /**
+   * Order of operation note: owners must be saved before cars, as cars are depended on the owner
+   * for fetching details, and ower's cascade not fetch. so when there are entities that fetch they
+   * need to save AFTER the cascading repo, or they will fail to fetch.
+   * 
+   * @return
+   */
   @Bean
   CommandLineRunner runing() {
     return args -> {
