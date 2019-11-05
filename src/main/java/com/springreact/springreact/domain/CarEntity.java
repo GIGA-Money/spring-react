@@ -9,9 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.Data;
 
-@Entity
+@Entity(name = "car")
 @Data
 /**
+ * @Entity the entity annotation is used to specify that the class is an entity
+ * attributes: the name attribute is used to specify the entity name and is optional.
+ * I.E @Entity(name = "[string]")
  * 
  * @author GIGA-Money This is the car entity class.
  *
@@ -27,22 +30,21 @@ public class CarEntity {
 
   /**
    * get the owner entity.
-   */
+   
   public OwnerEntity getOwnerEntity() {
     return owner;
   }
-
-  
+*/
+    /**
+   * Set the owner entity. Setter provided by lombok. 
+  public void setOnwerEnity(OwnerEntity owner) {
+    this.owner = owner;
+  }
+*/
   public String getOwnerFirstName() {
     return owner.getFirstname();
   }
 
-  /**
-   * set the owner entity.
-   */
-  public void setOnwerEnity(OwnerEntity owner) {
-    this.owner = owner;
-  }
 
 
   /**

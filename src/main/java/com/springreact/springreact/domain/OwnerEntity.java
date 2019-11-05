@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Data;
 
-@Entity
+@Entity(name = "owner")
 @Data
 public class OwnerEntity {
   @Id
