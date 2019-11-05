@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class OwnerEntity {
   /**
-   * Properties of the owner.  
+   * Properties of the owner.    
    */
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
