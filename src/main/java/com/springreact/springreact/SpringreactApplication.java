@@ -52,6 +52,8 @@ public class SpringreactApplication {
   private CarRepo localCarRepo;
   private CarEntity localCar = new CarEntity("Toy", "Cam", "Green", "802-11", 97, 100000, owner);
   private CarEntity localCar2 = new CarEntity("Toy", "Col", "Gray", "801-10", 96, 102500, owner2);
+  private CarEntity localCar3 = new CarEntity("For", "Tar", "Tan", "568-98-11", 2009, 90500);
+  private CarEntity localCar4 = new CarEntity("Chev", "Chall", "Black", "124-66-30", 11, 78601);
  
 /**
  * order of operation note: owners must be saved before cars, as cars are depended on the owner for fetching details, and ower's cascade not fetch.
@@ -63,8 +65,11 @@ public class SpringreactApplication {
     return args -> {
       localOwnerRepo.save(owner);
       localOwnerRepo.save(owner2);
+      localCarRepo.deleteAll();
       localCarRepo.save(localCar);
       localCarRepo.save(localCar2);
+      localCarRepo.save(localCar3);
+      localCarRepo.save(localCar4);
     };
   }
 
