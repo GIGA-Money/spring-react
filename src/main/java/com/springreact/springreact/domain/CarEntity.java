@@ -1,11 +1,13 @@
 package com.springreact.springreact.domain;
 
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import lombok.Data;
 
@@ -26,14 +28,23 @@ public class CarEntity {
    * per car.
    */
   @ManyToMany(mappedBy = "cars")
-  private Set<OwnerEntity> owner;
+  private Set<OwnerEntity> owners;
+
+  public Set<OwnerEntity> getOwners() {
+    return owners;
+  }
+
+  public void setOwners(Set<OwnerEntity> owners) {
+    this.owners = owners;
+  }
+
   /**
    * Fetch type = lazy means that when the owner is fetch, it fetches from the database.
-   
+   */
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "owner")
   private OwnerEntity owner;
-   */
+
   /**
    * Gets the owner first name for this car.
    * 
@@ -42,6 +53,7 @@ public class CarEntity {
   public String getOwnerFirstName() {
     return owner.getFirstname();
   }
+
 
   /**
    * @id Denotes the primary key.
@@ -76,11 +88,17 @@ public class CarEntity {
     setYear(year);
     setPrice(price);
     setOwner(owner);
-    setFirstName(getOwnerFirstName());
+    /**
+     * Project Lombok created this setter, but this setter is removed once firstName is not longer property of the class.
+     */
+    //setFirstName(getOwnerFirstName());
   }
 
 }
-
+/**
+ * @Notes The bellow are unused methods, these will be cleaned for the develope branch, and are here
+ *        as notes for review by the @author GIGA-Money.
+ */
 /**
  * get the owner entity.
  * 
@@ -90,3 +108,5 @@ public class CarEntity {
  * Set the owner entity. Setter provided by lombok. public void setOnwerEnity(OwnerEntity owner) {
  * this.owner = owner; }
  */
+
+
