@@ -32,5 +32,6 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-	runtime 'com.h2database:h2'
+	runtime 'org.mariadb.jbdc:mariadb-java-client'
+	//runtime 'com.h2database:h2'
 }
